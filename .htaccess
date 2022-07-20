@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase /
+	
+	# Redirect HTTPS to HTTP
+	#RewriteCond %{HTTP:X-Forwarded-Proto} =https
+	#RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	
+	# Redirect to www
+	#RewriteCond %{HTTP_HOST} !^www\.
+	#RewriteCond %{HTTPS}s on(s)|offs()
+	#RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	
+	#RewriteRule ^(.*)$ public/$1 [L,NC,QSA]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+#Cache
+#<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+	#Header set Cache-Control "max-age=2592000, public"
+#</filesMatch>
