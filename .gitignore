@@ -36,7 +36,7 @@ Desktop.ini
 nbproject/
 build/
 nbbuild/
-dist/
+#dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
@@ -44,11 +44,13 @@ nb-configuration.xml
 
 # Dev. backup
 /_*/
+!/_db
 !/install/*
 !/m/*
 
 # Composer
 vendor/
+!assets/**/vendor/
 composer.lock
 
 
